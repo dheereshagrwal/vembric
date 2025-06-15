@@ -6,7 +6,7 @@ export const metadata = {
 
 # Groups
 
-Groups are where communities live in Protocol — they are a collection of contacts you're talking to all at once. On this page, we'll dive into the different group endpoints you can use to manage groups programmatically. We'll look at how to query, create, update, and delete groups. {{ className: 'lead' }}
+Groups are where communities live in Vembric — they are a collection of contacts you're talking to all at once. On this page, we'll dive into the different group endpoints you can use to manage groups programmatically. We'll look at how to query, create, update, and delete groups. {{ className: 'lead' }}
 
 ## The group model
 
@@ -67,13 +67,13 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="GET" label="/v1/groups">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/groups \
+    curl -G https://api.vembric.chat/v1/groups \
       -H "Authorization: Bearer {token}" \
       -d limit=10
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -81,7 +81,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -89,7 +89,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->groups->list();
     ```
@@ -104,7 +104,7 @@ The group model contains all the information about your groups, including what c
           "id": "l7cGNIBKZiNJ6wqF",
           "name": "Plaza Hotel",
           "description": "World-renowned.",
-          "avatar_url": "https://assets.protocol.chat/avatars/plazahotel.jpg",
+          "avatar_url": "https://assets.vembric.chat/avatars/plazahotel.jpg",
           "conversation_id": "ZYjVAbCE9g5XRlra",
           "contacts": [
             {
@@ -145,7 +145,7 @@ The group model contains all the information about your groups, including what c
 <Row>
   <Col>
 
-    This endpoint allows you to create a new group conversation between you and a group of your Protocol contacts.
+    This endpoint allows you to create a new group conversation between you and a group of your Vembric contacts.
 
     ### Required attributes
 
@@ -175,13 +175,13 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="POST" label="/v1/groups">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/groups \
+    curl https://api.vembric.chat/v1/groups \
       -H "Authorization: Bearer {token}" \
       -d name="Plaza Hotel"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -191,7 +191,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -199,7 +199,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->groups->create([
       'name' => 'Plaza Hotel',
@@ -239,12 +239,12 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="GET" label="/v1/groups/L7cGNIBKZiNJ6wqF">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/groups/L7cGNIBKZiNJ6wqF \
+    curl https://api.vembric.chat/v1/groups/L7cGNIBKZiNJ6wqF \
       -H "Authorization: Bearer {token}"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -252,7 +252,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -260,7 +260,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->groups->get('L7cGNIBKZiNJ6wqF');
     ```
@@ -272,7 +272,7 @@ The group model contains all the information about your groups, including what c
       "id": "l7cGNIBKZiNJ6wqF",
       "name": "Plaza Hotel",
       "description": "World-renowned.",
-      "avatar_url": "https://assets.protocol.chat/avatars/plazahotel.jpg",
+      "avatar_url": "https://assets.vembric.chat/avatars/plazahotel.jpg",
       "conversation_id": "ZYjVAbCE9g5XRlra",
       "contacts": [
         {
@@ -335,13 +335,13 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="PUT" label="/v1/groups/L7cGNIBKZiNJ6wqF">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.protocol.chat/v1/groups/L7cGNIBKZiNJ6wqF \
+    curl -X PUT https://api.vembric.chat/v1/groups/L7cGNIBKZiNJ6wqF \
       -H "Authorization: Bearer {token}" \
       -d description="The finest in New York."
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -351,7 +351,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -359,7 +359,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->groups->update('L7cGNIBKZiNJ6wqF', [
       'description' => 'The finest in New York.',
@@ -373,7 +373,7 @@ The group model contains all the information about your groups, including what c
       "id": "l7cGNIBKZiNJ6wqF",
       "name": "Plaza Hotel",
       "description": "The finest in New York.",
-      "avatar_url": "https://assets.protocol.chat/avatars/plazahotel.jpg",
+      "avatar_url": "https://assets.vembric.chat/avatars/plazahotel.jpg",
       "conversation_id": "ZYjVAbCE9g5XRlra",
       "contacts": [
         {
@@ -416,12 +416,12 @@ The group model contains all the information about your groups, including what c
     <CodeGroup title="Request" tag="DELETE" label="/v1/groups/L7cGNIBKZiNJ6wqF">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.protocol.chat/v1/groups/L7cGNIBKZiNJ6wqF \
+    curl -X DELETE https://api.vembric.chat/v1/groups/L7cGNIBKZiNJ6wqF \
       -H "Authorization: Bearer {token}"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -429,7 +429,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -437,7 +437,7 @@ The group model contains all the information about your groups, including what c
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->groups->delete('L7cGNIBKZiNJ6wqF');
     ```

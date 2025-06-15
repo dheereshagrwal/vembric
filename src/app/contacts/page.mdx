@@ -6,11 +6,11 @@ export const metadata = {
 
 # Contacts
 
-As the name suggests, contacts are a core part of Protocol — the very reason Protocol exists is so you can have secure conversations with your contacts. On this page, we'll dive into the different contact endpoints you can use to manage contacts programmatically. We'll look at how to query, create, update, and delete contacts. {{ className: 'lead' }}
+As the name suggests, contacts are a core part of Vembric — the very reason Vembric exists is so you can have secure conversations with your contacts. On this page, we'll dive into the different contact endpoints you can use to manage contacts programmatically. We'll look at how to query, create, update, and delete contacts. {{ className: 'lead' }}
 
 ## The contact model
 
-The contact model contains all the information about your contacts, such as their username, avatar, and phone number. It also contains a reference to the conversation between you and the contact and information about when they were last active on Protocol.
+The contact model contains all the information about your contacts, such as their username, avatar, and phone number. It also contains a reference to the conversation between you and the contact and information about when they were last active on Vembric.
 
 ### Properties
 
@@ -65,14 +65,14 @@ The contact model contains all the information about your contacts, such as thei
     <CodeGroup title="Request" tag="GET" label="/v1/contacts">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/contacts \
+    curl -G https://api.vembric.chat/v1/contacts \
       -H "Authorization: Bearer {token}" \
       -d active=true \
       -d limit=10
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -80,7 +80,7 @@ The contact model contains all the information about your contacts, such as thei
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -88,7 +88,7 @@ The contact model contains all the information about your contacts, such as thei
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->contacts->list();
     ```
@@ -103,7 +103,7 @@ The contact model contains all the information about your contacts, such as thei
           "id": "WAz8eIbvDR60rouK",
           "username": "FrankMcCallister",
           "phone_number": "1-800-759-3000",
-          "avatar_url": "https://assets.protocol.chat/avatars/frank.jpg",
+          "avatar_url": "https://assets.vembric.chat/avatars/frank.jpg",
           "display_name": null,
           "conversation_id": "xgQQXg3hrtjh7AvZ",
           "last_active_at": 705103200,
@@ -127,7 +127,7 @@ The contact model contains all the information about your contacts, such as thei
 <Row>
   <Col>
 
-    This endpoint allows you to add a new contact to your contact list in Protocol. To add a contact, you must provide their Protocol username and phone number.
+    This endpoint allows you to add a new contact to your contact list in Vembric. To add a contact, you must provide their Vembric username and phone number.
 
     ### Required attributes
 
@@ -157,44 +157,44 @@ The contact model contains all the information about your contacts, such as thei
     <CodeGroup title="Request" tag="POST" label="/v1/contacts">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/contacts \
+    curl https://api.vembric.chat/v1/contacts \
       -H "Authorization: Bearer {token}" \
       -d username="FrankMcCallister" \
       -d phone_number="1-800-759-3000" \
-      -d avatar_url="https://assets.protocol.chat/avatars/frank.jpg"
+      -d avatar_url="https://assets.vembric.chat/avatars/frank.jpg"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
     await client.contacts.create({
       username: 'FrankMcCallister',
       phone_number: '1-800-759-3000',
-      avatar_url: 'https://assets.protocol.chat/avatars/frank.jpg',
+      avatar_url: 'https://assets.vembric.chat/avatars/frank.jpg',
     })
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
     client.contacts.create(
       username="FrankMcCallister",
       phone_number="1-800-759-3000",
-      avatar_url="https://assets.protocol.chat/avatars/frank.jpg",
+      avatar_url="https://assets.vembric.chat/avatars/frank.jpg",
     )
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->contacts->create([
       'username' => 'FrankMcCallister',
       'phone_number' => '1-800-759-3000',
-      'avatar_url' => 'https://assets.protocol.chat/avatars/frank.jpg',
+      'avatar_url' => 'https://assets.vembric.chat/avatars/frank.jpg',
     ]);
     ```
 
@@ -205,7 +205,7 @@ The contact model contains all the information about your contacts, such as thei
       "id": "WAz8eIbvDR60rouK",
       "username": "FrankMcCallister",
       "phone_number": "1-800-759-3000",
-      "avatar_url": "https://assets.protocol.chat/avatars/frank.jpg",
+      "avatar_url": "https://assets.vembric.chat/avatars/frank.jpg",
       "display_name": null,
       "conversation_id": "xgQQXg3hrtjh7AvZ",
       "last_active_at": null,
@@ -223,7 +223,7 @@ The contact model contains all the information about your contacts, such as thei
 <Row>
   <Col>
 
-    This endpoint allows you to retrieve a contact by providing their Protocol id. Refer to [the list](#the-contact-model) at the top of this page to see which properties are included with contact objects.
+    This endpoint allows you to retrieve a contact by providing their Vembric id. Refer to [the list](#the-contact-model) at the top of this page to see which properties are included with contact objects.
 
   </Col>
   <Col sticky>
@@ -231,12 +231,12 @@ The contact model contains all the information about your contacts, such as thei
     <CodeGroup title="Request" tag="GET" label="/v1/contacts/WAz8eIbvDR60rouK">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/contacts/WAz8eIbvDR60rouK \
+    curl https://api.vembric.chat/v1/contacts/WAz8eIbvDR60rouK \
       -H "Authorization: Bearer {token}"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -244,7 +244,7 @@ The contact model contains all the information about your contacts, such as thei
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -252,7 +252,7 @@ The contact model contains all the information about your contacts, such as thei
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->contacts->get('WAz8eIbvDR60rouK');
     ```
@@ -264,7 +264,7 @@ The contact model contains all the information about your contacts, such as thei
       "id": "WAz8eIbvDR60rouK",
       "username": "FrankMcCallister",
       "phone_number": "1-800-759-3000",
-      "avatar_url": "https://assets.protocol.chat/avatars/frank.jpg",
+      "avatar_url": "https://assets.vembric.chat/avatars/frank.jpg",
       "display_name": null,
       "conversation_id": "xgQQXg3hrtjh7AvZ",
       "last_active_at": 705103200,
@@ -282,7 +282,7 @@ The contact model contains all the information about your contacts, such as thei
 <Row>
   <Col>
 
-    This endpoint allows you to perform an update on a contact. Currently, the only attribute that can be updated on contacts is the `display_name` attribute which controls how a contact appears in your contact list in Protocol.
+    This endpoint allows you to perform an update on a contact. Currently, the only attribute that can be updated on contacts is the `display_name` attribute which controls how a contact appears in your contact list in Vembric.
 
     ### Optional attributes
 
@@ -298,13 +298,13 @@ The contact model contains all the information about your contacts, such as thei
     <CodeGroup title="Request" tag="PUT" label="/v1/contacts/WAz8eIbvDR60rouK">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.protocol.chat/v1/contacts/WAz8eIbvDR60rouK \
+    curl -X PUT https://api.vembric.chat/v1/contacts/WAz8eIbvDR60rouK \
       -H "Authorization: Bearer {token}" \
       -d display_name="UncleFrank"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -314,7 +314,7 @@ The contact model contains all the information about your contacts, such as thei
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -322,7 +322,7 @@ The contact model contains all the information about your contacts, such as thei
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->contacts->update('WAz8eIbvDR60rouK', [
       'display_name' => 'UncleFrank',
@@ -336,7 +336,7 @@ The contact model contains all the information about your contacts, such as thei
       "id": "WAz8eIbvDR60rouK",
       "username": "FrankMcCallister",
       "phone_number": "1-800-759-3000",
-      "avatar_url": "https://assets.protocol.chat/avatars/frank.jpg",
+      "avatar_url": "https://assets.vembric.chat/avatars/frank.jpg",
       "display_name": "UncleFrank",
       "conversation_id": "xgQQXg3hrtjh7AvZ",
       "last_active_at": 705103200,
@@ -354,7 +354,7 @@ The contact model contains all the information about your contacts, such as thei
 <Row>
   <Col>
 
-    This endpoint allows you to delete contacts from your contact list in Protocol. Note: This will also delete your conversation with the given contact.
+    This endpoint allows you to delete contacts from your contact list in Vembric. Note: This will also delete your conversation with the given contact.
 
   </Col>
   <Col sticky>
@@ -362,12 +362,12 @@ The contact model contains all the information about your contacts, such as thei
     <CodeGroup title="Request" tag="DELETE" label="/v1/contacts/WAz8eIbvDR60rouK">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.protocol.chat/v1/contacts/WAz8eIbvDR60rouK \
+    curl -X DELETE https://api.vembric.chat/v1/contacts/WAz8eIbvDR60rouK \
       -H "Authorization: Bearer {token}"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -375,7 +375,7 @@ The contact model contains all the information about your contacts, such as thei
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -383,7 +383,7 @@ The contact model contains all the information about your contacts, such as thei
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->contacts->delete('WAz8eIbvDR60rouK');
     ```

@@ -6,7 +6,7 @@ export const metadata = {
 
 # Attachments
 
-Attachments are how you share things in Protocol — they allow you to send all sorts of files to your contacts and groups. On this page, we'll dive into the different attachment endpoints you can use to manage attachments programmatically. We'll look at how to query, upload, update, and delete attachments. {{ className: 'lead' }}
+Attachments are how you share things in Vembric — they allow you to send all sorts of files to your contacts and groups. On this page, we'll dive into the different attachment endpoints you can use to manage attachments programmatically. We'll look at how to query, upload, update, and delete attachments. {{ className: 'lead' }}
 
 ## The attachment model
 
@@ -64,14 +64,14 @@ The attachment model contains all the information about the files you send to yo
     <CodeGroup title="Request" tag="GET" label="/v1/attachments">
 
     ```bash {{ title: 'cURL' }}
-    curl -G https://api.protocol.chat/v1/attachments \
+    curl -G https://api.vembric.chat/v1/attachments \
       -H "Authorization: Bearer {token}" \
       -d conversation_id="xgQQXg3hrtjh7AvZ" \
       -d limit=10
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -79,7 +79,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -87,7 +87,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->attachments->list();
     ```
@@ -102,7 +102,7 @@ The attachment model contains all the information about the files you send to yo
           "id": "Nc6yKKMpcxiiFxp6",
           "message_id": "LoPsJaMcPBuFNjg1",
           "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-          "file_url": "https://assets.protocol.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
+          "file_url": "https://assets.vembric.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
           "file_type": "application/pdf",
           "file_size": 21352,
           "created_at": 692233200
@@ -125,7 +125,7 @@ The attachment model contains all the information about the files you send to yo
 <Row>
   <Col>
 
-    This endpoint allows you to upload a new attachment to a conversation. See the code examples for how to send the file to the Protocol API.
+    This endpoint allows you to upload a new attachment to a conversation. See the code examples for how to send the file to the Vembric API.
 
     ### Required attributes
 
@@ -141,13 +141,13 @@ The attachment model contains all the information about the files you send to yo
     <CodeGroup title="Request" tag="POST" label="/v1/attachments">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/attachments \
+    curl https://api.vembric.chat/v1/attachments \
       -H "Authorization: Bearer {token}" \
       -F file="../Invoice_room_service__Plaza_Hotel.pdf"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -155,7 +155,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -163,7 +163,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->attachments->create([
       'file' => $file,
@@ -177,7 +177,7 @@ The attachment model contains all the information about the files you send to yo
       "id": "Nc6yKKMpcxiiFxp6",
       "message_id": "LoPsJaMcPBuFNjg1",
       "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-      "file_url": "https://assets.protocol.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
+      "file_url": "https://assets.vembric.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
       "file_type": "application/pdf",
       "file_size": 21352,
       "created_at": 692233200
@@ -202,12 +202,12 @@ The attachment model contains all the information about the files you send to yo
     <CodeGroup title="Request" tag="GET" label="/v1/attachments/Nc6yKKMpcxiiFxp6">
 
     ```bash {{ title: 'cURL' }}
-    curl https://api.protocol.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
+    curl https://api.vembric.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
       -H "Authorization: Bearer {token}"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -215,7 +215,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -223,7 +223,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->attachments->get('Nc6yKKMpcxiiFxp6');
     ```
@@ -235,7 +235,7 @@ The attachment model contains all the information about the files you send to yo
       "id": "Nc6yKKMpcxiiFxp6",
       "message_id": "LoPsJaMcPBuFNjg1",
       "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-      "file_url": "https://assets.protocol.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
+      "file_url": "https://assets.vembric.chat/attachments/Invoice_room_service__Plaza_Hotel.pdf",
       "file_type": "application/pdf",
       "file_size": 21352,
       "created_at": 692233200
@@ -268,13 +268,13 @@ The attachment model contains all the information about the files you send to yo
     <CodeGroup title="Request" tag="PUT" label="/v1/attachments/Nc6yKKMpcxiiFxp6">
 
     ```bash {{ title: 'cURL' }}
-    curl -X PUT https://api.protocol.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
+    curl -X PUT https://api.vembric.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
       -H "Authorization: Bearer {token}" \
       -d filename="Invoice_room_service__Plaza_Hotel_updated.pdf"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -284,7 +284,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -292,7 +292,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->attachments->update('Nc6yKKMpcxiiFxp6', [
       'filename' => 'Invoice_room_service__Plaza_Hotel_updated.pdf',
@@ -306,7 +306,7 @@ The attachment model contains all the information about the files you send to yo
       "id": "Nc6yKKMpcxiiFxp6",
       "message_id": "LoPsJaMcPBuFNjg1",
       "filename": "Invoice_room_service__Plaza_Hotel.pdf",
-      "file_url": "https://assets.protocol.chat/attachments/Invoice_room_service__Plaza_Hotel_updated.pdf",
+      "file_url": "https://assets.vembric.chat/attachments/Invoice_room_service__Plaza_Hotel_updated.pdf",
       "file_type": "application/pdf",
       "file_size": 21352,
       "created_at": 692233200
@@ -331,12 +331,12 @@ The attachment model contains all the information about the files you send to yo
     <CodeGroup title="Request" tag="DELETE" label="/v1/attachments/Nc6yKKMpcxiiFxp6">
 
     ```bash {{ title: 'cURL' }}
-    curl -X DELETE https://api.protocol.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
+    curl -X DELETE https://api.vembric.chat/v1/attachments/Nc6yKKMpcxiiFxp6 \
       -H "Authorization: Bearer {token}"
     ```
 
     ```js
-    import ApiClient from '@example/protocol-api'
+    import ApiClient from '@example/vembric-api'
 
     const client = new ApiClient(token)
 
@@ -344,7 +344,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```python
-    from protocol_api import ApiClient
+    from vembric_api import ApiClient
 
     client = ApiClient(token)
 
@@ -352,7 +352,7 @@ The attachment model contains all the information about the files you send to yo
     ```
 
     ```php
-    $client = new \Protocol\ApiClient($token);
+    $client = new \Vembric\ApiClient($token);
 
     $client->attachments->delete('Nc6yKKMpcxiiFxp6');
     ```
