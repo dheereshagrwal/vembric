@@ -2,9 +2,9 @@ import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import { forwardRef } from 'react'
+import { Logo } from './Logo'
 
 import { Button } from '@/components/Button'
-import { Logo } from '@/components/Logo'
 import {
   MobileNavigation,
   useIsInsideMobileNavigation,
@@ -75,7 +75,7 @@ export const Header = forwardRef<
       <div className="flex items-center gap-5 lg:hidden">
         <MobileNavigation />
         <CloseButton as={Link} href="/" aria-label="Home">
-          <Logo className="h-6" />
+          <Logo className="h-12 w-12" />
         </CloseButton>
       </div>
       <div className="flex items-center gap-5">
