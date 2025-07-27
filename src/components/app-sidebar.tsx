@@ -12,6 +12,7 @@ import {
   SidebarMenuItem,
   SidebarMenuSub,
   SidebarMenuSubItem,
+  useSidebar,
 } from "@/components/ui/sidebar"
 import {
   Collapsible,
@@ -19,6 +20,28 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
+
+import {
+  IconCreditCard,
+  IconDotsVertical,
+  IconLogout,
+  IconNotification,
+  IconUserCircle,
+} from "@tabler/icons-react";
+
+import {
+  Avatar,
+  AvatarFallback,
+  AvatarImage,
+} from "@/components/ui/avatar"
+
+import {
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu"
+
+
 
 // Navigation items
 export const navigation = [
@@ -46,7 +69,29 @@ export const navigation = [
   },
 ]
 
-export function AppSidebar() {
+// export function NavUser({
+//   user,
+// }: {
+//   user: {
+//     name: string
+//     email: string
+//     avatar: string
+//   }
+// }) 
+  
+
+export function AppSidebar(
+  {
+  user,
+}: {
+  user: {
+    name: string
+    email: string
+    avatar: string
+  }
+}
+) {
+  const { isMobile } = useSidebar()
   return (
     <Sidebar>
       <SidebarContent className="flex flex-col justify-between h-full">
@@ -86,23 +131,68 @@ export function AppSidebar() {
           <SidebarFooter>
           <SidebarMenu>
             <SidebarMenuItem>
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <SidebarMenuButton>
-                    <User2 /> Chirag Kumar
-                    <ChevronUp className="ml-auto" />
-                  </SidebarMenuButton>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  side="top"
-                  className="w-[--radix-popper-anchor-width] bg-white"
-                >
-                  <DropdownMenuItem>
-                    <span>Sign out</span>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-            </SidebarMenuItem>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <SidebarMenuButton
+              size="lg"
+              className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+            >
+              <Avatar className="h-8 w-8 rounded-lg grayscale">
+                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+              </Avatar>
+              <div className="grid flex-1 text-left text-sm leading-tight">
+                <span className="truncate font-medium">{user.name}</span>
+                <span className="text-muted-foreground truncate text-xs">
+                  {user.email}
+                </span>
+              </div>
+              <IconDotsVertical className="ml-auto size-4" />
+            </SidebarMenuButton>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent
+            className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg p-3 bg-white border-2"
+            side={isMobile ? "bottom" : "right"}
+            align="end"
+            sideOffset={4}
+          >
+            <DropdownMenuLabel className="p-0 font-normal">
+              <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+                <Avatar className="h-8 w-8 rounded-lg">
+                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                </Avatar>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-medium">{user.name}</span>
+                  <span className="text-muted-foreground truncate text-xs">
+                    {user.email}
+                  </span>
+                </div>
+              </div>
+            </DropdownMenuLabel>
+            {/* <DropdownMenuSeparator /> */}
+            {/* <DropdownMenuGroup> */}
+              {/* <DropdownMenuItem className="flex flex-row">
+                <IconUserCircle />
+                Account
+              </DropdownMenuItem>
+              <DropdownMenuItem className="flex flex-row">
+                <IconCreditCard />
+                Billing
+              </DropdownMenuItem>
+              <DropdownMenuItem className="flex flex-row">
+                <IconNotification />
+                Notifications
+              </DropdownMenuItem> */}
+            {/* </DropdownMenuGroup> */}
+            <DropdownMenuSeparator />
+            <DropdownMenuItem className="flex flex-row">
+              <IconLogout />
+              Log out
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </SidebarMenuItem>
           </SidebarMenu>
         </SidebarFooter>
         </SidebarGroup>

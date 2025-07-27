@@ -7,11 +7,18 @@ import { Sidebar, SidebarProvider,SidebarTrigger } from '@/components/ui/sidebar
 import { Header } from '../components/Header';
 import { AppSidebar } from '../components/app-sidebar';
 export function ClientLayout({ children }: { children: ReactNode }) {
+
+  const mockUser = {
+    name: "Chirag Kumar",
+    email: "chigsofficial@gmail.com",
+    avatar: "https://placehold.co/100x100/A020F0/ffffff?text=CK",
+  };
+
   return (
     <LayoutProvider>
       {/* SidebarProvider must wrap any component that uses useSidebar, including the Sidebar component itself */}
       <SidebarProvider>
-      <AppSidebar />
+      <AppSidebar user={mockUser} />
       <main>
         <SidebarTrigger />
         {children}
