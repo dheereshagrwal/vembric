@@ -6,6 +6,8 @@ import { LayoutProvider } from '../providers/layout-provider';
 import { Sidebar, SidebarProvider,SidebarTrigger } from '@/components/ui/sidebar';
 import { Header } from '../components/Header';
 import { AppSidebar } from '../components/app-sidebar';
+import Link from 'next/link';
+import { Logo } from '@/components/logo';
 export function ClientLayout({ children }: { children: ReactNode }) {
 
   const mockUser = {
@@ -18,6 +20,8 @@ export function ClientLayout({ children }: { children: ReactNode }) {
     <LayoutProvider>
       {/* SidebarProvider must wrap any component that uses useSidebar, including the Sidebar component itself */}
       <SidebarProvider>
+        
+
       <AppSidebar user={mockUser} />
       <main>
         <SidebarTrigger />

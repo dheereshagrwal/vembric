@@ -1,4 +1,4 @@
-import { ChevronUp, Plus, User2 } from "lucide-react"
+import { ChevronDown, ChevronUp, Plus, User2 } from "lucide-react"
 import {
   Sidebar,
   SidebarContent,
@@ -40,7 +40,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
-
+import Link from "next/link";
+import { Logo } from '@/components/logo';
 
 
 // Navigation items
@@ -96,7 +97,13 @@ export function AppSidebar(
     <Sidebar>
       <SidebarContent className="flex flex-col justify-between h-full">
         <SidebarGroup className="h-full">
-          {/* <SidebarGroupLabel>Application</SidebarGroupLabel> */}
+          <SidebarGroupLabel className="p-6">
+            <div className="hidden lg:flex">
+              <Link href="/" aria-label="Home">
+                <Logo className="h-12 w-12" />
+              </Link>
+            </div>
+          </SidebarGroupLabel>
           <SidebarGroupAction>
             {/* <Plus /> <span className="sr-only">Add Project</span> */}
           </SidebarGroupAction>
@@ -108,6 +115,7 @@ export function AppSidebar(
                     <CollapsibleTrigger asChild>
                       <SidebarMenuButton>
                         <span>{group.title}</span>
+                        <ChevronDown className="ml-auto transition-transform group-data-[state=open]/collapsible:rotate-180" />
                       </SidebarMenuButton>
                     </CollapsibleTrigger>
                     <CollapsibleContent>
@@ -139,7 +147,7 @@ export function AppSidebar(
             >
               <Avatar className="h-8 w-8 rounded-lg grayscale">
                 <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">CN</AvatarFallback>
+                <AvatarFallback className="rounded-lg">CK</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
