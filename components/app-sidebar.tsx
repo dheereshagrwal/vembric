@@ -30,59 +30,82 @@ const data = {
   },
   navMain: [
     {
-      title: "Playground",
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: "History",
-          url: "#",
-        },
-        {
-          title: "Starred",
-          url: "#",
-        },
-        {
-          title: "Settings",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Models",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Genesis",
-          url: "#",
-        },
-        {
-          title: "Explorer",
-          url: "#",
-        },
-        {
-          title: "Quantum",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
+      title: "Getting Started",
       url: "#",
       icon: BookOpen,
+      isActive: true,
       items: [
         {
           title: "Introduction",
           url: "#",
         },
         {
-          title: "Get Started",
+          title: "Quick Start",
           url: "#",
         },
         {
-          title: "Tutorials",
+          title: "Installation",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "API Reference",
+      url: "#",
+      icon: Bot,
+      items: [
+        {
+          title: "Authentication",
+          url: "#",
+        },
+        {
+          title: "Endpoints",
+          url: "#",
+        },
+        {
+          title: "Rate Limiting",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Guides",
+      url: "#",
+      icon: SquareTerminal,
+      items: [
+        {
+          title: "Best Practices",
+          url: "#",
+        },
+        {
+          title: "Error Handling",
+          url: "#",
+        },
+        {
+          title: "SDKs",
+          url: "#",
+        },
+        {
+          title: "Examples",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Support",
+      url: "#",
+      icon: Settings2,
+      items: [
+        {
+          title: "FAQ",
+          url: "#",
+        },
+        {
+          title: "Contact",
+          url: "#",
+        },
+        {
+          title: "Status",
           url: "#",
         },
         {
@@ -91,45 +114,92 @@ const data = {
         },
       ],
     },
+  ],
+  navModels: [
     {
-      title: "Settings",
+      title: "Getting Started",
       url: "#",
-      icon: Settings2,
+      icon: BookOpen,
+      isActive: true,
       items: [
         {
-          title: "General",
+          title: "Introduction",
           url: "#",
         },
         {
-          title: "Team",
+          title: "Quick Start",
           url: "#",
         },
         {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
+          title: "Installation",
           url: "#",
         },
       ],
     },
-  ],
-  projects: [
     {
-      name: "Design Engineering",
+      title: "API Reference",
       url: "#",
-      icon: Frame,
+      icon: Bot,
+      items: [
+        {
+          title: "Authentication",
+          url: "#",
+        },
+        {
+          title: "Endpoints",
+          url: "#",
+        },
+        {
+          title: "Rate Limiting",
+          url: "#",
+        },
+      ],
     },
     {
-      name: "Sales & Marketing",
+      title: "Guides",
       url: "#",
-      icon: PieChart,
+      icon: SquareTerminal,
+      items: [
+        {
+          title: "Best Practices",
+          url: "#",
+        },
+        {
+          title: "Error Handling",
+          url: "#",
+        },
+        {
+          title: "SDKs",
+          url: "#",
+        },
+        {
+          title: "Examples",
+          url: "#",
+        },
+      ],
     },
     {
-      name: "Travel",
+      title: "Support",
       url: "#",
-      icon: Map,
+      icon: Settings2,
+      items: [
+        {
+          title: "FAQ",
+          url: "#",
+        },
+        {
+          title: "Contact",
+          url: "#",
+        },
+        {
+          title: "Status",
+          url: "#",
+        },
+        {
+          title: "Changelog",
+          url: "#",
+        },
+      ],
     },
   ],
 };
@@ -145,7 +215,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       </SidebarHeader>
       <SidebarContent>
         <NavMain items={data.navMain} />
-        <NavMain items={data.navMain} />
+        <NavMain items={data.navModels} />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
