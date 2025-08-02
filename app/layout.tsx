@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { fontSans, fontMono } from "@/lib/fonts";
+import { AppSidebar } from "@/components/app-sidebar";
+import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar"; // ✅ context provider
 import "./globals.css";
+import { AppHeader } from "@/components/app-header";
 
 export const metadata: Metadata = {
   title: "Vembric - API Documentation Template",
@@ -18,7 +21,13 @@ export default function RootLayout({
       <body
         className={`${fontSans.variable} ${fontMono.variable} font-sans antialiased`}
       >
-        {children}
+        <SidebarProvider>
+          <AppSidebar />
+          <SidebarInset className="flex-1 flex flex-col overflow-auto">
+            <AppHeader /> 
+            <main className="flex-1 p-4">{children}</main>
+          </SidebarInset>
+        </SidebarProvider>
       </body>
     </html>
   );
