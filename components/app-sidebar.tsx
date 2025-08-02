@@ -4,11 +4,12 @@ import * as React from "react";
 import {
   BookOpen,
   Bot,
-  Frame,
-  Map,
-  PieChart,
   Settings2,
   SquareTerminal,
+  Users,
+  CreditCard,
+  FileText,
+  Gamepad2,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -117,86 +118,94 @@ const data = {
   ],
   navModels: [
     {
-      title: "Getting Started",
+      title: "Games",
       url: "#",
-      icon: BookOpen,
+      icon: Gamepad2,
       isActive: true,
       items: [
         {
-          title: "Introduction",
+          title: "List All Games",
           url: "#",
         },
         {
-          title: "Quick Start",
+          title: "Create Game",
           url: "#",
         },
         {
-          title: "Installation",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "API Reference",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Authentication",
+          title: "Edit Game",
           url: "#",
         },
         {
-          title: "Endpoints",
-          url: "#",
-        },
-        {
-          title: "Rate Limiting",
+          title: "View Details",
           url: "#",
         },
       ],
     },
     {
-      title: "Guides",
+      title: "Users",
       url: "#",
-      icon: SquareTerminal,
+      icon: Users,
       items: [
         {
-          title: "Best Practices",
+          title: "List Users",
           url: "#",
         },
         {
-          title: "Error Handling",
+          title: "Register User",
           url: "#",
         },
         {
-          title: "SDKs",
+          title: "Edit Profile",
           url: "#",
         },
         {
-          title: "Examples",
+          title: "Manage Roles",
           url: "#",
         },
       ],
     },
     {
-      title: "Support",
+      title: "Leases",
       url: "#",
-      icon: Settings2,
+      icon: FileText,
       items: [
         {
-          title: "FAQ",
+          title: "Active Leases",
           url: "#",
         },
         {
-          title: "Contact",
+          title: "Create Lease",
           url: "#",
         },
         {
-          title: "Status",
+          title: "Renew Lease",
           url: "#",
         },
         {
-          title: "Changelog",
+          title: "Lease History",
+          url: "#",
+        },
+      ],
+    },
+    {
+      title: "Payments",
+      url: "#",
+      icon: CreditCard,
+      items: [
+        {
+          title: "Process Payment",
+          url: "#",
+        },
+        {
+          title: "View Transactions",
+          url: "#",
+        },
+        {
+          title: "Refunds",
+          url: "#",
+        },
+        {
+          title: "Billing Settings",
           url: "#",
         },
       ],
@@ -214,8 +223,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </div>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavMain items={data.navModels} />
+        <NavMain items={data.navMain} label="Guides" />
+        <NavMain items={data.navModels} label="Models" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
