@@ -29,7 +29,7 @@ const data = {
     email: "m@example.com",
     avatar: "/avatars/shadcn.jpg",
   },
-  navMain: [
+  guides: [
     {
       title: "Getting Started",
       url: "#",
@@ -116,7 +116,7 @@ const data = {
       ],
     },
   ],
-  navModels: [
+  resources: [
     {
       title: "Games",
       url: "#",
@@ -223,8 +223,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         </div>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} label="Guides" />
-        <NavMain items={data.navModels} label="Models" />
+        <NavMain items={data.guides} label="Guides" />
+        <NavMain items={data.resources} label="Resources" />
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
