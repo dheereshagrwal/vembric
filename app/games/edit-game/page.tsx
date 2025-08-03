@@ -12,7 +12,7 @@ const data = {
   description: 'This endpoint allows you to update the properties of an existing game.',
   method: 'PUT',
   endpoint: '/v1/games/:id',
-  requiredAttributes: [
+  model: [
     {
       name: 'id',
       type: 'string (path param)',
@@ -70,6 +70,25 @@ export default function EditGamePage() {
 
       <Separator className="my-6" />
 
+      {/* Game Model */}
+      <section>
+        <h2 className="text-xl font-semibold mb-4">Game Model</h2>
+        <div className="space-y-4">
+          {data.model.map((item) => (
+            <div key={item.name}>
+              <div className="flex items-center gap-2 font-mono font-medium">
+                <Badge variant="outline" className="rounded-sm">{item.name}</Badge>
+                <code className="text-xs text-muted-foreground">{item.type}</code>
+              </div>
+              <p className="text-sm text-muted-foreground">{item.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <Separator className="my-6" />
+
+      {/* Endpoint */}
       <section>
         <div className="flex items-center gap-3 mb-2">
           <Badge variant="outline" className="bg-yellow-100 text-yellow-800 border-yellow-300 font-mono">
@@ -80,19 +99,7 @@ export default function EditGamePage() {
         <h3 className="text-lg font-semibold">Update an existing game</h3>
       </section>
 
-      <section className="mb-6">
-        <h4 className="font-medium text-base mb-2">Required Attributes</h4>
-        <ul className="list-disc list-inside space-y-1">
-          {data.requiredAttributes.map((attr) => (
-            <li key={attr.name}>
-              <span className="font-medium">{attr.name}</span>{' '}
-              <code className="text-sm text-muted-foreground">({attr.type})</code>: {attr.description}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <Tabs defaultValue="curl" className="w-full">
+      <Tabs defaultValue="curl" className="w-full mt-4">
         <TabsList className="mb-2">
           <TabsTrigger value="curl">cURL</TabsTrigger>
           <TabsTrigger value="js">JavaScript</TabsTrigger>
@@ -111,6 +118,7 @@ export default function EditGamePage() {
 
       <Separator className="my-6" />
 
+      {/* Response */}
       <section>
         <h4 className="text-base font-medium mb-2">Sample Response</h4>
         <SyntaxHighlighter language="json" style={vscDarkPlus} wrapLongLines className="rounded-md text-sm">
