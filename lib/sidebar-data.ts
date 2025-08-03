@@ -112,22 +112,22 @@ export const sidebarData = {
       items: [
         {
           title: "List All Games",
-          url: "/list-all-games",
+          url: "/games/list-all-games",
           requestType: "GET",
         },
         {
           title: "Create Game",
-          url: "#",
+          url: "/games/create-game",
           requestType: "POST",
         },
         {
           title: "Edit Game",
-          url: "#",
+          url: "/games/edit-game",
           requestType: "PUT",
         },
         {
           title: "View Details",
-          url: "#",
+          url: "/games/view-details",
           requestType: "GET",
         },
       ],

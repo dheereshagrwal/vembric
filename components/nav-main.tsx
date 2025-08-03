@@ -68,7 +68,7 @@ export function NavMain({
                             <span>{subItem.title}</span>
                             {subItem.requestType && (
                               <span
-                                className={`text-xs font-bold px-2 py-0.5 rounded 
+                                className={`text-xs font-bold px-1 py-0.5 rounded 
               ${
                 subItem.requestType === "GET"
                   ? "bg-green-100 text-green-800"
