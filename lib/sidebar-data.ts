@@ -9,12 +9,11 @@ import {
   Users,
 } from "lucide-react";
 
-
 export const sidebarData = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "john",
+    email: "john@example.com",
+    avatar: "/avatars/john.jpg",
   },
   guides: [
     {
@@ -129,75 +128,6 @@ export const sidebarData = {
           title: "View Details",
           url: "/games/view-details",
           requestType: "GET",
-        },
-      ],
-    },
-    {
-      title: "Users",
-      url: "#",
-      icon: Users,
-      items: [
-        {
-          title: "List Users",
-          url: "#",
-        },
-        {
-          title: "Register User",
-          url: "#",
-        },
-        {
-          title: "Edit Profile",
-          url: "#",
-        },
-        {
-          title: "Manage Roles",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Leases",
-      url: "#",
-      icon: FileText,
-      items: [
-        {
-          title: "Active Leases",
-          url: "#",
-        },
-        {
-          title: "Create Lease",
-          url: "#",
-        },
-        {
-          title: "Renew Lease",
-          url: "#",
-        },
-        {
-          title: "Lease History",
-          url: "#",
-        },
-      ],
-    },
-    {
-      title: "Payments",
-      url: "#",
-      icon: CreditCard,
-      items: [
-        {
-          title: "Process Payment",
-          url: "#",
-        },
-        {
-          title: "View Transactions",
-          url: "#",
-        },
-        {
-          title: "Refunds",
-          url: "#",
-        },
-        {
-          title: "Billing Settings",
-          url: "#",
         },
       ],
     },
