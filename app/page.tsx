@@ -24,11 +24,11 @@ export default function Page() {
             </div>
           </div>
         </div>
-        <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min flex items-center justify-center">
+        <div className="bg-muted/50 min-h-[100vh] flex-1 rounded-xl md:min-h-min flex items-center justify-center p-8">
           <div className="text-center space-y-4">
             <h1 className="text-4xl font-bold">Welcome to Vembric</h1>
             <p className="text-xl text-muted-foreground">
-              A beautiful template for API documentation
+              A beautiful template for API documentation (Work in Progress)
             </p>
             <p className="text-muted-foreground max-w-2xl">
               Create stunning, developer-friendly API documentation with this
