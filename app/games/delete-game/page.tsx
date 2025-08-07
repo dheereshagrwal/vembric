@@ -8,61 +8,35 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const data = {
-  title: 'Update a Game',
-  description: 'This endpoint allows you to update the properties of an existing game.',
-  method: 'PUT',
-  endpoint: '/v1/games/:id',
+  title: 'Delete Game',
+  description:
+    'This endpoint allows you to delete an existing game by its unique ID. You must provide the game ID in the request URL.',
+  method: 'DELETE',
+  endpoint: '/v1/games/{id}',
   model: [
-    {
-      name: 'id',
-      type: 'string (path param)',
-      description: 'ID of the game to update.',
-    },
-    {
-      name: 'name',
-      type: 'string',
-      description: 'Updated name of the game (optional).',
-    },
-    {
-      name: 'genre',
-      type: 'string',
-      description: 'Updated genre of the game (optional).',
-    },
-    {
-      name: 'release_date',
-      type: 'string',
-      description: 'Updated release date in ISO format (optional).',
-    },
+    { name: 'id', type: 'string', description: 'Unique identifier of the game to delete.' },
   ],
-  curl: `curl -X PUT https://api.vembric.chat/v1/games/game_xyz123 \\
-  -H "Authorization: Bearer {token}" \\
-  -H "Content-Type: application/json" \\
-  -d '{
-    "name": "Puzzle Hero Remastered",
-    "release_date": "2024-01-15"
-  }'`,
+  curl: `curl -X DELETE https://api.vembric.chat/v1/games/game_xyz123 \
+  -H "Authorization: Bearer {token}"`,
   js: `await fetch("https://api.vembric.chat/v1/games/game_xyz123", {
-  method: "PUT",
+  method: "DELETE",
   headers: {
     Authorization: "Bearer {token}",
-    "Content-Type": "application/json",
   },
-  body: JSON.stringify({
-    name: "Puzzle Hero Remastered",
-    release_date: "2024-01-15",
-  }),
 });`,
   response: {
+    success: true,
+    message: 'Game deleted successfully.',
     id: 'game_xyz123',
-    name: 'Puzzle Hero Remastered',
+    name: 'Puzzle Hero',
     genre: 'Puzzle',
-    release_date: '2024-01-15',
+    release_date: '2023-11-01',
     developer: 'Logic Labs',
-    updated_at: '2025-08-03T12:00:00Z',
+    created_at: '2025-08-03T10:00:00Z',
   },
 };
 
-export default function EditGamePage() {
+export default function CreateGamePage() {
   return (
     <ScrollArea className="p-6">
       <h1 className="text-3xl font-bold mb-2">{data.title}</h1>
@@ -91,30 +65,31 @@ export default function EditGamePage() {
       {/* Endpoint */}
       <section>
         <div className="flex items-center gap-3 mb-2">
-          <Badge variant="outline" className="bg-yellow-100 text-yellow-800 border-yellow-300 font-mono">
+          <Badge variant="outline" className="bg-blue-100 text-blue-800 border-blue-300 font-mono">
             {data.method}
           </Badge>
           <code className="text-sm font-mono bg-muted px-2 py-1 rounded">{data.endpoint}</code>
         </div>
-        <h3 className="text-lg font-semibold">Update an existing game</h3>
-      </section>
+        <p className="text-muted-foreground mb-4">{data.description}</p>
 
-      <Tabs defaultValue="curl" className="w-full mt-4">
-        <TabsList className="mb-2">
-          <TabsTrigger value="curl">cURL</TabsTrigger>
-          <TabsTrigger value="js">JavaScript</TabsTrigger>
-        </TabsList>
-        <TabsContent value="curl">
-          <SyntaxHighlighter language="bash" style={vscDarkPlus} wrapLongLines className="rounded-md text-sm">
-            {data.curl}
-          </SyntaxHighlighter>
-        </TabsContent>
-        <TabsContent value="js">
-          <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLongLines className="rounded-md text-sm">
-            {data.js}
-          </SyntaxHighlighter>
-        </TabsContent>
-      </Tabs>
+        {/* Code Tabs */}
+        <Tabs defaultValue="curl" className="w-full">
+          <TabsList className="mb-2">
+            <TabsTrigger value="curl">cURL</TabsTrigger>
+            <TabsTrigger value="js">JavaScript</TabsTrigger>
+          </TabsList>
+          <TabsContent value="curl">
+            <SyntaxHighlighter language="bash" style={vscDarkPlus} wrapLongLines className="rounded-md text-sm">
+              {data.curl}
+            </SyntaxHighlighter>
+          </TabsContent>
+          <TabsContent value="js">
+            <SyntaxHighlighter language="javascript" style={vscDarkPlus} wrapLongLines className="rounded-md text-sm">
+              {data.js}
+            </SyntaxHighlighter>
+          </TabsContent>
+        </Tabs>
+      </section>
 
       <Separator className="my-6" />
 

@@ -110,25 +110,31 @@ export const sidebarData = {
       isActive: true,
       items: [
         {
-          title: "List All Games",
+          title: "List All games",
           url: "/games/list-all-games",
           requestType: "GET",
         },
         {
-          title: "Create Game",
+          title: "Create a game",
           url: "/games/create-game",
           requestType: "POST",
         },
         {
-          title: "Edit Game",
+          title: "Update a game",
           url: "/games/edit-game",
           requestType: "PUT",
         },
         {
-          title: "View Details",
+          title: "Get game details",
           url: "/games/view-details",
           requestType: "GET",
         },
+        {
+          title: "Delete a Game",
+          url: "/games/delete-game",
+          requestType: "DELETE"
+}
+
       ],
     },
   ],

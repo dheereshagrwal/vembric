@@ -8,7 +8,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const data = {
-  title: 'Create Game',
+  title: 'Create a Game',
   description:
     'This endpoint allows you to create a new game by sending basic game information like name, genre, and release date.',
   method: 'POST',

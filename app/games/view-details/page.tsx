@@ -8,7 +8,7 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 const data = {
-  title: 'View Game Details',
+  title: 'Get Game Details',
   description: 'Retrieve detailed information about a specific game using its ID.',
   method: 'GET',
   endpoint: '/v1/games/:id',
