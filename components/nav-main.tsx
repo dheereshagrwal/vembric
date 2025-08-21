@@ -64,7 +64,7 @@ export function NavMain({
                         <Link href={subItem.url}>
                           <div className="flex items-center gap-2 justify-between w-full">
                             {/* Show requestType in a label */}
-                            
+
                             <span>{subItem.title}</span>
                             {subItem.requestType && (
                               <span
