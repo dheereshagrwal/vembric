@@ -1,12 +1,9 @@
 import {
   BookOpen,
   Bot,
-  CreditCard,
-  FileText,
   Gamepad2,
   Settings2,
   SquareTerminal,
-  Users,
 } from "lucide-react";
 
 export const sidebarData = {
@@ -122,12 +119,22 @@ export const sidebarData = {
         {
           title: "Edit Game",
           url: "/games/edit-game",
+          requestType: "PATCH",
+        },
+        {
+          title: "Update Game",
+          url: "/games/update-game",
           requestType: "PUT",
         },
         {
           title: "View Details",
           url: "/games/view-details",
           requestType: "GET",
+        },
+        {
+          title: "Delete Game",
+          url: "/games/delete-game",
+          requestType: "DELETE",
         },
       ],
     },

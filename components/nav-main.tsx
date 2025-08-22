@@ -19,7 +19,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import { getRequestTypeColorClass, formatRequestType } from "@/lib/requestType";
+import { getRequestTypeColorClass } from "@/lib/requestType";
 import { Badge } from "@/components/ui/badge";
 
 export function NavMain({
@@ -65,16 +65,17 @@ export function NavMain({
                       <SidebarMenuSubButton asChild>
                         <Link
                           href={subItem.url}
-                          className="flex items-center gap-2 justify-between w-full"
+                          className="flex items-center gap-2 justify-between w-full h-8"
                         >
                           <span>{subItem.title}</span>
                           {subItem.requestType && (
                             <Badge
-                              className={`rounded text-xs ${getRequestTypeColorClass(
-                                subItem.requestType
-                              )}`}
+                              className={
+                                "rounded " +
+                                getRequestTypeColorClass(subItem.requestType)
+                              }
                             >
-                              {formatRequestType(subItem.requestType)}
+                              {subItem.requestType}
                             </Badge>
                           )}
                         </Link>
