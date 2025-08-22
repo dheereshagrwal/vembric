@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import { Separator } from "@/components/ui/separator";
 import { SidebarTrigger } from "@/components/ui/sidebar";
-import { sidebarData } from "@/constants/sidebar-data";
+import { sidebarData } from "@/constants/";
 
 export function AppHeader() {
   const pathname = usePathname(); // e.g. "/list-all-games"

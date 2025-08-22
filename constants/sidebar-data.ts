@@ -5,6 +5,7 @@ import {
   Settings2,
   SquareTerminal,
 } from "lucide-react";
+import { RequestType } from ".";
 
 export const sidebarData = {
   user: {
@@ -109,32 +110,32 @@ export const sidebarData = {
         {
           title: "List All Games",
           url: "/games/list-all-games",
-          requestType: "GET",
+          requestType: RequestType.GET,
         },
         {
           title: "Create Game",
           url: "/games/create-game",
-          requestType: "POST",
+          requestType: RequestType.POST,
         },
         {
           title: "Edit Game",
           url: "/games/edit-game",
-          requestType: "PATCH",
+          requestType: RequestType.PATCH,
         },
         {
           title: "Update Game",
           url: "/games/update-game",
-          requestType: "PUT",
+          requestType: RequestType.PUT,
         },
         {
           title: "View Details",
           url: "/games/view-details",
-          requestType: "GET",
+          requestType: RequestType.GET,
         },
         {
           title: "Delete Game",
           url: "/games/delete-game",
-          requestType: "DELETE",
+          requestType: RequestType.DELETE,
         },
       ],
     },

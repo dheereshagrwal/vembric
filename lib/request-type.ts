@@ -1,4 +1,6 @@
-export function getRequestTypeColorClass(requestType: string) {
+import { RequestType } from "@/constants/";
+
+export function getRequestTypeColorClass(requestType: RequestType) {
   const rt = requestType;
   const base = "font-mono text-2xs font-semibold py-1 px-1.5 ring-1 ring-inset";
 
