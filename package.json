@@ -13,7 +13,10 @@
       "@tailwindcss/oxide",
       "sharp",
       "unrs-resolver"
-    ]
+    ],
+    "overrides": {
+      "typescript": "5.8.3"
+    }
   },
   "dependencies": {
     "@radix-ui/react-avatar": "^1.1.10",
