@@ -21,6 +21,7 @@ import {
 import Link from "next/link";
 import { getRequestTypeColorClass } from "@/lib/request-type";
 import { Badge } from "@/components/ui/badge";
+import { RequestType } from "@/constants";
 
 export function NavMain({
   items,
@@ -34,7 +35,7 @@ export function NavMain({
     items?: {
       title: string;
       url: string;
-      requestType?: string;
+      requestType?: RequestType;
     }[];
   }[];
   label: string;
