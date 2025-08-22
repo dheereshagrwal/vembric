@@ -19,7 +19,7 @@ import {
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import { getRequestTypeColorClass } from "@/lib/requestType";
+import { getRequestTypeColorClass } from "@/lib/request-type";
 import { Badge } from "@/components/ui/badge";
 
 export function NavMain({
